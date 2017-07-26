@@ -2,13 +2,18 @@
 package dz_specialist_25072017;
 
 public class Person {
-    private String firstName, lastName;
+    private String firstName;
+    private String lastName;
     private int age;
+    Adress adress;
 
-    Person (String fn, String ln, int ag){
+//    Person(){}
+
+    Person (String fn, String ln, int ag, Adress adr){
         firstName = fn;
         lastName = ln;
         age = ag;
+        adress = adr;
     }
 
     Person (String fn, String ln){
@@ -29,6 +34,10 @@ public class Person {
         return age;
     }
 
+    public Adress getAdress() {
+        return adress;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -41,12 +50,17 @@ public class Person {
         this.age = age;
     }
 
+    public void setAdress(Adress adress) {
+        this.adress = adress;
+    }
+
+
     @Override
     public String toString(){
         return "STRING PERSON";
     }
 
     public String getFIO(){
-        return getFirstName()+" "+getLastName()+" : "+getAge()+ " age";
+        return getFirstName()+" "+getLastName();
     }
 }
