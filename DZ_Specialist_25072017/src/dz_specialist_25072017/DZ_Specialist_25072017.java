@@ -11,37 +11,37 @@ package dz_specialist_25072017;
  */
 public class DZ_Specialist_25072017 {
 
-    //печатаем сотрудников старше 40 лет
-    public static void printAge(Manager mg[]){
-        for (Manager m: mg){
-            if (m.getAge()>40)
-                printManager(m);
-        }
 
-    }
 
-    public static void printManager(Manager pr){
-        System.out.println("FIO " + pr.getFIO() + " Residential address " +
-                pr.adress.getStreetName() + " house number  " + pr.adress.getHouseNumber()+
-                " salary: " + pr.getSalary() + "$");
-    }
 
     public static void main(String[] args) {
         //наши менеджеры
-        Manager Andru = new Manager("Andru", "Kovalchuk", 41, new Adress("ul. Krasnogvard", 124), 3200);
-        Manager Roman = new Manager("Roman", "Solomonov", 35, new Adress("pr. Kolomiceva", 54), 4231);
-        Manager Sveta = new Manager("Sveta", "Gornostaeva", 25, new Adress("pl. Ulii Nagornoi", 7), 3214);
-        //вывод на печать наших методов
-//        printManager(Andru);
-//        printManager(Roman);
-//        printManager(Sveta);
+        Manager Andru = new Manager("Andru", "Kovalchuk", 41, new Adress("ul. Krasnogvard", 124));
+        Manager Roman = new Manager("Roman", "Solomonov", 35, new Adress("pr. Kolomiceva", 54));
+        Manager Sveta = new Manager("Sveta", "Gornostaeva", 25, new Adress("pl. Ulii Nagornoi", 7));
+        Person Petya = new Manager("Petya", "Ivanovich", 45, new Adress("ul. Lenina", 130));
+
+
+        //инициализация зарплат
+        Andru.setSalary(123.5);
+        Roman.setSalary(86.8);
+        Sveta.setSalary(59.5);
 
         //создаем массив наших сотрудников
-        Manager array[] = new Manager[3];
+        Manager array[] = new Manager[4];
         array[0]=Andru;
         array[1]=Roman;
         array[2]=Sveta;
-        //передаем наш массив методу выводящему на печать сотрудников старше 40 лет
-        printAge(array);
+        array[3]=(Manager)Petya;
+
+
+        //печатаем суммарную сумму зарплат менеджеров
+        System.out.println("Суммарная зарплата Менеджеров составляет: " +
+                Manager.getTotalSalary(array));
+
+
+        TopManager topM = new TopManager();
+        topM.setManagers(array);
+        Manager toArray[] = topM.getManagers();
     }
 }

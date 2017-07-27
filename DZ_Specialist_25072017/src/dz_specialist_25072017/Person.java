@@ -10,10 +10,18 @@ public class Person {
 //    Person(){}
 
     Person (String fn, String ln, int ag, Adress adr){
+        //свойства
         firstName = fn;
         lastName = ln;
         age = ag;
         adress = adr;
+    }
+
+    Person (String fn, String ln, int ag){
+        firstName = fn;
+        lastName = ln;
+        age = ag;
+        adress = null;
     }
 
     Person (String fn, String ln){
@@ -62,5 +70,11 @@ public class Person {
 
     public String getFIO(){
         return getFirstName()+" "+getLastName();
+    }
+
+    //вывод на печать всех сотрудников
+    public void print(Person pr){
+        System.out.println(pr.getFIO() + " Проживающий по адресу " +
+                pr.adress.getStreetName() + " номер дома  " + pr.adress.getHouseNumber());
     }
 }
